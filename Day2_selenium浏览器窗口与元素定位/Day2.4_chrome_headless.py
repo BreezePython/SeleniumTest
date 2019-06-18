@@ -4,29 +4,18 @@
 # @Date     : 2019/6/19 0:02
 # @Software : PyCharm
 # @version  ：Python 3.6.8
-# @File     : Day2.2_chrome_options.py
+# @File     : Day2.4_chrome_headless.py
 
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 import time
 
-from selenium.webdriver.chrome.options import Options
-
 options = Options()
-options.add_argument('--window-size=900,600')
-options.add_argument('--start-maximized')
-options.add_argument('--incognito')
-options.add_argument('--disable-infobars')
-
+options.add_argument('--headless')
 driver = webdriver.Chrome(chrome_options=options)
 
-
 driver.get("https://www.jianshu.com/u/d23fd5012bed")
-
-driver.maximize_window()
-time.sleep(1)
-driver.set_window_size(800,500)
-time.sleep(1)
-
-# 退出drvier关闭浏览器
+time.sleep(3)
+print(driver.title)
 driver.quit()
 
