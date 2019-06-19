@@ -40,6 +40,4 @@ time.sleep(1)
 driver.find_element_by_xpath("//input[@id='kw']").send_keys(" xpath 定位|")
 time.sleep(1)
 
-
-
 driver.quit()
