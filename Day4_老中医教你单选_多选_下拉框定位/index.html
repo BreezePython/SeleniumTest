@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>老中医</title>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <style type="text/css">
+    body {
+        height: 500px;
+    }
+
+    .container {
+        max-width: 500px;
+        height: 450px;
+        border: 2px solid grey;
+        border-radius: 5px;
+    }
+
+    .ad {
+        text-align: center;
+        font-size: 25px;
+        background-color: black;
+        color: red;
+        margin-bottom: 20px;
+    }
+
+    .chuibi {
+        display: inline-block;
+    }
+
+    .adplus {
+        color: black;
+    }
+
+    .footer {
+        text-align: center;
+    }
+    </style>
+</head>
+
+<body>
+    <form class="container">
+        <div class="row">
+            <div class="ad ">祖传男科老中医
+                <div class="small chuibi"> 【华佗在世，扁鹊转生】
+                </div>
+            </div>
+        </div>
+        <div class="form-group ">
+            <div class="input-group">
+                <div class="input-group-addon">
+                    姓名：
+                </div>
+                <input id='name' class="form-control" />
+            </div>
+        </div>
+        <div class="form-group ">
+            <div class="input-group">
+                <div class="input-group-addon">
+                    性别：
+                </div>
+
+                <select id="sex" class="form-control">
+                    <option value="女">女</option>
+                    <option value="男">男</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group has-success">
+            <div><label class="control-label">如何了解我院：</label></div>
+            <label class="radio-inline">
+                <input type="radio" name="access" id="inlineRadio2" value="朋友介绍"> 朋友介绍
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="access" id="inlineRadio1" value="野广告">野广告
+            </label>
+        </div>
+        <div class="form-group has-error">
+            <div><label class="control-label">有哪些病症：</label></div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="全身乏力">
+                    全身乏力
+                </label>
+            </div>
+            <div class="checkbox ">
+                <label>
+                    <input type="checkbox" value="食欲不振">
+                    食欲不振
+                </label>
+            </div>
+            <div class="checkbox ">
+                <label>
+                    <input type="checkbox" value="腰膝酸软">
+                    腰膝酸软
+                </label>
+            </div>
+            <div class="checkbox ">
+                <label>
+                    <input type="checkbox" value="失眠多梦">
+                    失眠多梦
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div><label class="control-label">简要描述你的病情：</label></div>
+            <input id='summary' class="form-control" type="text">
+        </div>
+
+    </form>
+    <div class="footer">
+        ©2019-清风Python：<a href="https://www.jianshu.com/u/d23fd5012bed">联系我们</a>
+    </div>
+    <script>
+    setInterval(function() {
+        var title = $('.ad')
+        if (title.hasClass('adplus')) {
+            title.removeClass('adplus')
+        } else { $('.ad').addClass('adplus') }
+    }, 600);
+    </script>
+</body>
+
+</html>
