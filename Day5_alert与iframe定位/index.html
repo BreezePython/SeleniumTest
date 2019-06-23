@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>alert与iframe</title>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+
+        .container {
+            max-width: 650px;
+            border: 2px solid grey;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h2 class="text-center ">老中医亲情大回馈，义诊活动开始啦！</h2>
+    <div>
+        <p class="strong text-warning">欢迎各位父老乡亲前来就诊！请点击同意隐私获取授权：
+            <a id='access' href="javascript:alert('我同意该条款.')">点我确认</a></p>
+    </div>
+    <iframe name="card" src="laozhongyi.html" width="600" ,
+            height="600" frameborder="0"></iframe>
+</div>
+
+</body>
+
+</html>
