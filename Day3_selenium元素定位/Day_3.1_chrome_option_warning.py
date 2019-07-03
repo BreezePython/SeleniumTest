@@ -9,7 +9,7 @@ from selenium import webdriver
 import time
 
 options = webdriver.ChromeOptions()
-options.add_argument('window-size=800,600')
+options.add_argument('window-size=700,500')
 options.add_argument('disable-infobars')
 driver = webdriver.Chrome(options=options)
 
