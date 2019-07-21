@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 # @Author   : 王翔
 # @JianShu  : 清风Python
-# @Date     : 2019/7/3 22:19
+# @Date     : 2019/7/4 02:19
 # @Software : PyCharm
 # @version  ：Python 3.7.3
-# @File     : Be_a_famous.py
+# @File     : Be_A_Famous.py
 
 
 import time
@@ -51,7 +51,7 @@ class FamousPerson:
         :return: driver
         """
         options = webdriver.ChromeOptions()
-        options.add_argument('window-size=900,900')
+        options.add_argument('window-size=900,600')
         options.add_argument('disable-infobars')
         return webdriver.Chrome(options=options)
 
@@ -71,8 +71,8 @@ class FamousPerson:
         """
         _scrollTop = 0
         # 渐进下拉，避免大幅度页面偏移，导致的textarea获取失败...
-        for i in range(10):
-            _scrollTop += 500
+        for i in range(20):
+            _scrollTop += 400
             js = "var q=document.documentElement.scrollTop={}".format(_scrollTop)
             self.driver.execute_script(js)
             time.sleep(0.2)
@@ -110,17 +110,22 @@ class FamousPerson:
         while self.Page:
             notes = self.driver.find_elements_by_css_selector('.note-list li')
             for note in notes[self.ContentNo:]:
-                note_link = note.find_element_by_tag_name('a')
-                note_name = note_link.text + '\n'
-                if note_name in self.log_list:
-                    continue
-                self.log_list.append(note_name)
-                note_link.click()
-                time.sleep(1)
-                self.add_comment()
-                self.ContentNo += 1
+                try:
+                    note_link = note.find_element_by_tag_name('a')
+                    note_name = note_link.text + '\n'
+                    if note_name in self.log_list:
+                        continue
+                    self.log_list.append(note_name)
+                    note_link.click()
+                    time.sleep(1)
+                    self.add_comment()
+                    self.ContentNo += 1
+                except:
+                    pass
             self.Page -= 1
-        with open('self.log_text', 'w') as f:
+            # 下拉刷新一次页面
+            self.control_scrollbar()
+        with open(self.log_text, 'w') as f:
             f.writelines(self.log_list)
 
 
@@ -138,7 +143,7 @@ if __name__ == '__main__':
                     "欢迎大家关注,谢谢支持。")
     cookie = {
         'name': 'remember_user_token',
-        'value': ('W1s1ODQ3NDI2XSwiJDJhJDExJDZLMlU3Vi5NN29WcnlCYy9ycC45aXUiLCIxNTYyMTY0'
-                  'NTAzLjc5MTQ5NCJd--637e1d2b99f411284270122f28d0ef1cfe41113c')
+        # add value by yourself
+        'value': ('W1s1ODQ3NDI2XSwiJDJhJDExJDZLMlU3Vi5NN29WcnlCYy9ycC45aXUi....')
     }
     run()
